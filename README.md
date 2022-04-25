@@ -21,7 +21,7 @@ set default value
 ```
 $('#bankcode').bankcode('set',{
 	'bank_name': '聯邦商業銀行',
-	'branch_name': '桃園分行',
+	'bank_branch_name': '桃園分行',
 	'bank_code': '8030032',
 });
 ```

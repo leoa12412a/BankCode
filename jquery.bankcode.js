@@ -14,7 +14,7 @@
 
     'use strict';
 
-    // Zipcode JSON data
+    // bank_code JSON data
     var data = {
 		'臺灣銀行' : {'營業部': '0040037', '公庫部': '0040059', '館前分行': '0040071', '臺南分行': '0040093', '臺中分行': '0040107', '高雄分行': '0040118', '基隆分行': '0040129', '中興新村分行': '0040130', '嘉義分行': '0040141', '新竹分行': '0040152', '彰化分行': '0040163', '屏東分行': '0040174', '花蓮分行': '0040185', '延平分行': '0040196', '中山分行': '0040200', '高雄加工出口區分行': '0040211', '宜蘭分行': '0040222', '臺東分行': '0040233', '澎湖分行': '0040244', '鳳山分行': '0040255', '桃園分行': '0040266', '板橋分行': '0040277', '新營分行': '0040288', '苗栗分行': '0040299', '豐原分行': '0040303', '斗六分行': '0040314', '南投分行': '0040325', '南門分行': '0040336', '公館分行': '0040347', '左營分行': '0040358', '北投分行': '0040369', '霧峰分行': '0040370', '金門分行': '0040381', '馬祖分行': '0040392', '安平分行': '0040406', '中壢分行': '0040417', '三重分行': '0040428', '頭份分行': '0040439', '前鎮分行': '0040440', '城中分行': '0040451', '民權分行': '0040462', '潭子分行': '0040473', '連城分行': '0040484', '員林分行': '0040495', '松江分行': '0040509', '鼓山分行': '0040510', '龍山分行': '0040521', '忠孝分行': '0040532', '信義分行': '0040543', '復興分行': '0040554', '三民分行': '0040565', '臺中港分行': '0040576', '羅東分行': '0040587', '埔里分行': '0040598', '岡山分行': '0040602', '新興分行': '0040613', '苓雅分行': '0040624', '松山分行': '0040646', '健行分行': '0040657', '中和分行': '0040668', '太保分行': '0040679', '竹北分行': '0040680', '士林分行': '0040705', '新莊分行': '0040716', '大甲分行': '0040727', '新竹科學園區分行': '0040738', '樹林分行': '0040749', '新店分行': '0040750', '黎明分行': '0040794', '民生分行': '0040808', '永康分行': '0040819', '三多分行': '0040820', '臺北世貿中心分行': '0040853', '大安分行': '0040864', '華江分行': '0040875', '潮州分行': '0040886', '蘇澳分行': '0040897', '大雅分行': '0040901', '楠梓分行': '0040912', '臺中工業區分行': '0040923', '敦化分行': '0041067', '南港分行': '0041078', '和平分行': '0041089', '水湳分行': '0041090', '中崙分行': '0041104', '土城分行': '0041115', '桃園國際機場分行': '0041159', '大昌分行': '0041160', '五甲分行': '0041182', '博愛分行': '0041193', '中庄分行': '0041207', '平鎮分行': '0041218', '仁愛分行': '0041229', '南崁分行': '0041230', '圓山分行': '0041241', '五股分行': '0041355', '大里分行': '0041366', '安南分行': '0041377', '西屯分行': '0041414', '天母分行': '0041425', '鹿港分行': '0041436', '內壢分行': '0041447', '臺南科學園區分行': '0041469', '虎尾分行': '0041470', '淡水分行': '0041481', '內湖分行': '0041539', '嘉北分行': '0041540', '東港分行': '0041551', '汐止分行': '0041562', '梧棲分行': '0041573', '小港分行': '0041595', '中屏分行': '0041609', '群賢分行': '0041621', '北大路分行': '0041643', '文山分行': '0041654', '太平分行': '0041702', '德芳分行': '0041713', '建國分行': '0041724', '屏東農科園區分行': '0041768', '東桃園分行': '0041861', '蘆洲分行': '0041872', '高雄國際機場分行': '0041919', '永吉簡易型分行': '0041931', '東門簡易型分行': '0041942', '愛國簡易型分行': '0041953', '臺電簡易型分行': '0041986', '北府簡易型分行': '0042053', '臺北港分行': '0042189', '臺中科學園區分行': '0042204', '高雄科學園區分行': '0042215', '東湖分行': '0042237', '高榮分行': '0042248', '南港軟體園區分行': '0042259', '龍潭分行': '0042260', '仁德分行': '0042271', '林口分行': '0042282', '木柵分行': '0042293', '臺南創新園區分行': '0042307', '武昌分行': '0042363', '臺北分行': '0042385', '金山分行': '0042396', '信安分行': '0042400', '劍潭分行': '0042411', '萬華分行': '0042422', '板新分行': '0042433', '新永和分行': '0042444', '南新莊分行': '0042455', '新明分行': '0042477', '六家分行': '0042488', '北臺中分行': '0042499', '嘉南分行': '0042525', '南都分行': '0042536', '北高雄分行': '0042558', '成功分行': '0042569', '北花蓮分行': '0042570', '新湖分行': '0042709', '五福分行': '0042710', '六甲頂分行': '0042721', '中都分行': '0042787', '臺北國際機場分行': '0042798', '新莊副都心分行': '0042802', '仁武分行': '0042835', '臺中國際機場分行': '0042891', '臺中精密園區分行': '0042905', '亞矽創新分行': '0042972', },
 		'臺灣土地銀行' : {'基隆分行': '0050027', '中和分行': '0050038', '南港分行': '0050049', '台北分行': '0050050', '民權分行': '0050061', '古亭分行': '0050072', '長安分行': '0050083', '士林分行': '0050094', '三重分行': '0050108', '宜蘭分行': '0050119', '羅東分行': '0050120', '桃園分行': '0050131', '中壢分行': '0050142', '石門分行': '0050153', '新竹分行': '0050164', '竹東分行': '0050175', '花蓮分行': '0050186', '玉里分行': '0050197', '苗栗分行': '0050201', '頭份分行': '0050212', '豐原分行': '0050223', '大甲分行': '0050234', '台中分行': '0050245', '南投分行': '0050256', '員林分行': '0050267', '斗六分行': '0050278', '北港分行': '0050289', '嘉義分行': '0050290', '新營分行': '0050304', '永康分行': '0050315', '台南分行': '0050326', '高雄分行': '0050337', '岡山分行': '0050348', '美濃分行': '0050359', '屏東分行': '0050360', '台東分行': '0050371', '青年分行': '0050382', '金門分行': '0050393', '澎湖分行': '0050407', '營業部': '0050418', '和平分行': '0050452', '潮州分行': '0050463', '彰化分行': '0050474', '中山分行': '0050485', '永和分行': '0050496', '板橋分行': '0050500', '鳳山分行': '0050511', '湖口分行': '0050522', '蘇澳分行': '0050533', '新興分行': '0050544', '西台中分行': '0050555', '虎尾分行': '0050566', '仁愛分行': '0050577', '忠孝分行': '0050588', '中正分行': '0050599', '新店分行': '0050614', '北台南分行': '0050625', '松山分行': '0050636', '內湖分行': '0050647', '三民分行': '0050658', '民雄分行': '0050669', '大社分行': '0050670', '前鎮分行': '0050692', '路竹分行': '0050706', '五甲分行': '0050717', '太平分行': '0050728', '正濱分行': '0050739', '敦化分行': '0050740', '蘆洲分行': '0050762', '北台中分行': '0050773', '苓雅分行': '0050784', '信義分行': '0050795', '土城分行': '0050809', '淡水分行': '0050810', '草屯分行': '0050821', '東台南分行': '0050832', '通霄分行': '0050843', '學甲分行': '0050854', '新莊分行': '0050865', '雙和分行': '0050876', '白河分行': '0050898', '復興分行': '0050902', '平鎮分行': '0050913', '文山分行': '0050935', '中港分行': '0050946', '東板橋分行': '0050957', '南崁分行': '0050968', '建國分行': '0050979', '樹林分行': '0050980', '東台北分行': '0050991', '西三重分行': '0051002', '南台中分行': '0051013', '長春分行': '0051024', '東新竹分行': '0051035', '新市分行': '0051046', '博愛分行': '0051057', '中崙分行': '0051068', '華江分行': '0051079', '竹北分行': '0051080', '安平分行': '0051091', '嘉興分行': '0051105', '南新莊分行': '0051116', '三峽分行': '0051127', '沙鹿分行': '0051138', '南桃園分行': '0051149', '汐止分行': '0051150', '萬華分行': '0051161', '小港分行': '0051172', '新工分行': '0051183', '烏日分行': '0051194', '西湖分行': '0051208', '八德分行': '0051219', '北屯分行': '0051220', '大安分行': '0051231', '北中壢分行': '0051242', '高樹分行': '0051253', '枋寮分行': '0051264', '金城分行': '0051286', '光復分行': '0051297', '左營分行': '0051301', '北桃園分行': '0051312', '東港分行': '0051323', '天母分行': '0051334', '泰山分行': '0051345', '中科分行': '0051356', '大園分行': '0051367', '楊梅分行': '0051378', '東門分行': '0051389', '城東分行': '0051404', '松南分行': '0051415', '福興分行': '0051426', '林口分行': '0051437', '西屯分行': '0051448', '內壢分行': '0051459', '竹南分行': '0051460', '安南分行': '0051471', '汐科分行': '0051482', '楠梓分行': '0051493', '大里分行': '0051507', '大灣分行': '0051518', '大發分行': '0051530', '工研院分行': '0051563', '北三重分行': '0051574', '圓通分行': '0051585', '大直分行': '0051600', '南屯分行': '0051611', '寶中分行': '0051633', '中清分行': '0051644', '南京東路分行': '0051655', '仁武分行': '0051666', '青埔分行': '0051677', },
@@ -82,17 +82,17 @@
             'bank_nameName'          : 'bank_name',
             'css'                 : [],
             'detect'              : false,             // v1.6.7
-            'districtName'        : 'branch_name',
+            'bank_branch_nameName'        : 'bank_branch_name',
             'googleMapsKey'       : '', // v1.6.9
             'hideCounty'          : [], // v1.7.9
-            'hideDistrict'        : [], // v1.7.9
+            'hidebank_branch_name'        : [], // v1.7.9
             'onCountySelect'      : null,      // v1.5
-            'onDistrictSelect'    : null,    // v1.5
-            'onZipcodeKeyUp'      : null,      // v1.5
+            'onbank_branch_nameSelect'    : null,    // v1.5
+            'onbank_codeKeyUp'      : null,      // v1.5
             'readonly'            : false,
-            'zipcodeName'         : 'bank_code',
-            'zipcodePlaceholder'  : '銀行代號',
-            'zipcodeIntoDistrict' : false, // v1.6.6
+            'bank_codeName'         : 'bank_code',
+            'bank_codePlaceholder'  : '銀行代號',
+            'bank_codeIntobank_branch_name' : false, // v1.6.6
         };
         /**
          * DOM of selector
@@ -175,7 +175,7 @@
             }
 
             if ('function' === typeof callback) {
-                callback.call(this, this.wrap.bank_name.val(), this.wrap.district.val(), this.wrap.zipcode.val());
+                callback.call(this, this.wrap.bank_name.val(), this.wrap.bank_branch_name.val(), this.wrap.bank_code.val());
             } else if ('string' === typeof callback) {
                 callback.split(',').forEach(putin);
             } else if (Array.isArray(callback)) {
@@ -190,27 +190,26 @@
          * @param {(string|number|Object)} opts Input value
          */
         set: function (opts) {
-
             var self = this,
                 def = {
                     'bank_name'   : '',
-                    'district' : '',
-                    'zipcode'  : ''
+                    'bank_branch_name' : '',
+                    'bank_code'  : ''
                 },
                 opt = $.extend({}, def, opts);
 
             try {
                 if ('string' === typeof opts || 'number' === typeof opts) {
-                    self.wrap.zipcode.val(opts).trigger('blur.bankcode');
+                    self.wrap.bank_code.val(opts).trigger('blur.bankcode');
                 } else {
-                    if (opt.zipcode) {
-                        self.wrap.zipcode.val(opt.zipcode).trigger('blur.bankcode');
+                    if (opt.bank_code) {
+                        self.wrap.bank_code.val(opt.bank_code).trigger('blur.bankcode');
                     }
                     if (opt.bank_name) {
                         self.wrap.bank_name.val(opt.bank_name).trigger('change.bankcode');
                     }
-                    if (opt.district) {
-                        self.wrap.district.val(opt.district).trigger('change.bankcode');
+                    if (opt.bank_branch_name) {
+                        self.wrap.bank_branch_name.val(opt.bank_branch_name).trigger('change.bankcode');
                     }
                 }
             } catch (ignore) {
@@ -230,17 +229,17 @@
                 bank_name = '',
                 list = {
                     'bank_name': '<option value="">銀行名稱</option>',
-                    'district': '<option value="">分行名稱</option>'
+                    'bank_branch_name': '<option value="">分行名稱</option>'
                 },
                 tpl = [];
 
             switch (obj) {
-            case 'district':
-                wrap.district.html(list.district);
+            case 'bank_branch_name':
+                wrap.bank_branch_name.html(list.bank_branch_name);
                 break;
             default:
                 wrap.bank_name.html(list.bank_name);
-                wrap.district.html(list.district);
+                wrap.bank_branch_name.html(list.bank_branch_name);
                 for (bank_name in data) {
                     if ('undefined' !== typeof data[bank_name] && -1 === opts.hideCounty.indexOf(bank_name)) {
                         tpl.push('<option value="' + bank_name + '">' + bank_name + '</option>');
@@ -249,7 +248,7 @@
                 $(tpl.join('')).appendTo(wrap.bank_name);
                 break;
             }
-            wrap.zipcode.val('');
+            wrap.bank_code.val('');
         },
         /**
          * Binding the event of the elements
@@ -267,57 +266,57 @@
             // bank_name
             wrap.bank_name.on('change.bankcode', function () {
                 var val = $(this).val(),
-                    district = '',
+                    bank_branch_name = '',
                     tpl = [];
 
-                wrap.district.empty();
+                wrap.bank_branch_name.empty();
 
                 if (val) {
-                    if (true === opts.zipcodeIntoDistrict) {
-                        for (district in data[val]) {
-                            if ('undefined' !== typeof data[val][district] &&
-                                (-1 === opts.hideDistrict.indexOf(district) && -1 === opts.hideDistrict.indexOf(data[val][district]))
+                    if (true === opts.bank_codeIntobank_branch_name) {
+                        for (bank_branch_name in data[val]) {
+                            if ('undefined' !== typeof data[val][bank_branch_name] &&
+                                (-1 === opts.hidebank_branch_name.indexOf(bank_branch_name) && -1 === opts.hidebank_branch_name.indexOf(data[val][bank_branch_name]))
                             ) {
-                                tpl.push('<option value="' + district + '">');
-                                tpl.push(data[val][district] + ' ' + district);
+                                tpl.push('<option value="' + bank_branch_name + '">');
+                                tpl.push(data[val][bank_branch_name] + ' ' + bank_branch_name);
                                 tpl.push('</option>');
                             }
                         }
                     } else {
-                        for (district in data[val]) {
-                            if ('undefined' !== typeof data[val][district] &&
-                                (-1 === opts.hideDistrict.indexOf(district) && -1 === opts.hideDistrict.indexOf(data[val][district]))
+                        for (bank_branch_name in data[val]) {
+                            if ('undefined' !== typeof data[val][bank_branch_name] &&
+                                (-1 === opts.hidebank_branch_name.indexOf(bank_branch_name) && -1 === opts.hidebank_branch_name.indexOf(data[val][bank_branch_name]))
                             ) {
-                                tpl.push('<option value="' + district + '">');
-                                tpl.push(district);
+                                tpl.push('<option value="' + bank_branch_name + '">');
+                                tpl.push(bank_branch_name);
                                 tpl.push('</option>');
                             }
                         }
                     }
-                    wrap.district.append(tpl.join('')).trigger('change.bankcode');
+                    wrap.bank_branch_name.append(tpl.join('')).trigger('change.bankcode');
                 } else {
                     wrap.bank_name.find('option:first').prop('selected', true);
-                    self.reset('district');
+                    self.reset('bank_branch_name');
                 }
                 // County callback binding
                 if ('function' === typeof opts.onCountySelect) {
                     opts.onCountySelect.call(this);
                 }
             });
-            // District
-            wrap.district.on('change.bankcode', function () {
+            // bank_branch_name
+            wrap.bank_branch_name.on('change.bankcode', function () {
                 var val = $(this).val(),
                     cv  = transfer(wrap.bank_name.val());
                 if (cv) {
-                    wrap.zipcode.val(data[cv][val]);
+                    wrap.bank_code.val(data[cv][val]);
                 }
-                // District callback binding
-                if ('function' === typeof opts.onDistrictSelect) {
-                    opts.onDistrictSelect.call(this);
+                // bank_branch_name callback binding
+                if ('function' === typeof opts.onbank_branch_nameSelect) {
+                    opts.onbank_branch_nameSelect.call(this);
                 }
             });
-            // Zipcode
-            wrap.zipcode.on('keyup.bankcode blur.bankcode', function () {
+            // bank_code
+            wrap.bank_code.on('keyup.bankcode blur.bankcode', function () {
 
                 var obj = $(this),
                     val = '',
@@ -334,28 +333,28 @@
                                     val === data[i][j]
                                 ) {
                                     wrap.bank_name.val(i).trigger('change.bankcode');
-                                    wrap.district.val(j).trigger('change.bankcode');
+                                    wrap.bank_branch_name.val(j).trigger('change.bankcode');
                                     break;
                                 }
                             }
                         }
                     }
                 }
-                // Zipcode callback binding
-                if ('function' === typeof opts.onZipcodeKeyUp) {
-                    opts.onZipcodeKeyUp.call(this);
+                // bank_code callback binding
+                if ('function' === typeof opts.onbank_codeKeyUp) {
+                    opts.onbank_codeKeyUp.call(this);
                 }
             });
 
             // Put [data-*] into attributes of element
             (function () {
-                var zip      = self.role.zipcode.data(),
+                var zip      = self.role.bank_code.data(),
                     bank_name   = self.role.bank_name.data(),
-                    district = self.role.district.data(),
+                    bank_branch_name = self.role.bank_branch_name.data(),
                     n;
                 for (n in zip) {
                     if ('role' !== n) {
-                        self.role.zipcode.find(':input').attr(n, zip[n]);
+                        self.role.bank_code.find(':input').attr(n, zip[n]);
                     }
                 }
                 for (n in bank_name) {
@@ -363,19 +362,19 @@
                         self.role.bank_name.find('select').attr(n, bank_name[n]);
                     }
                 }
-                for (n in district) {
+                for (n in bank_branch_name) {
                     if ('role' !== n) {
-                        self.role.district.find('select').attr(n, district[n]);
+                        self.role.bank_branch_name.find('select').attr(n, bank_branch_name[n]);
                     }
                 }
             }());
 
-            dz = 'undefined' !== typeof opts.zipcodeSel ?
-                 opts.zipcodeSel :
+            dz = 'undefined' !== typeof opts.bank_codeSel ?
+                 opts.bank_codeSel :
                  (
-                    'undefined' !== typeof self.role.zipcode.data('value') ?
-                    self.role.zipcode.data('value') :
-                    opts.zipcodeSel
+                    'undefined' !== typeof self.role.bank_code.data('value') ?
+                    self.role.bank_code.data('value') :
+                    opts.bank_codeSel
                  );
 
             dc = 'undefined' !== typeof opts.bank_nameSel ?
@@ -386,12 +385,12 @@
                     opts.bank_nameSel
                  );
 
-            dd = 'undefined' !== typeof opts.districtSel ?
-                 opts.districtSel :
+            dd = 'undefined' !== typeof opts.bank_branch_nameSel ?
+                 opts.bank_branch_nameSel :
                  (
-                    'undefined' !== typeof self.role.district.data('value') ?
-                    self.role.district.data('value') :
-                    opts.districtSel
+                    'undefined' !== typeof self.role.bank_branch_name.data('value') ?
+                    self.role.bank_branch_name.data('value') :
+                    opts.bank_branch_nameSel
                  );
 
             // Default value
@@ -399,11 +398,11 @@
                 dc = transfer(dc);
                 self.wrap.bank_name.val(dc).trigger('change.bankcode');
                 if ('undefined' !== typeof data[dc] && 'undefined' !== typeof data[dc][dd]) {
-                    self.wrap.district.val(dd).trigger('change.bankcode');
+                    self.wrap.bank_branch_name.val(dd).trigger('change.bankcode');
                 }
             }
             if (dz && 3 === dz.toString().length) {
-                self.wrap.zipcode.val(dz).trigger('blur.bankcode');
+                self.wrap.bank_code.val(dz).trigger('blur.bankcode');
             }
         },
         /**
@@ -452,7 +451,7 @@
                                                  .address_components[data.results[0].address_components.length - 1]
                                                  .long_name;
                                     if (postal) {
-                                        self.wrap.zipcode.val(postal.toString()).trigger('blur.bankcode');
+                                        self.wrap.bank_code.val(postal.toString()).trigger('blur.bankcode');
                                     }
                                 }
                                 if ('function' === typeof callback) {
@@ -478,14 +477,14 @@
                 opts = self.options,
                 role = {
                     bank_name: container.find('[data-role=bank_name]:first'),
-                    district: container.find('[data-role=district]:first'),
-                    zipcode: container.find('[data-role=zipcode]:first')
+                    bank_branch_name: container.find('[data-role=bank_branch_name]:first'),
+                    bank_code: container.find('[data-role=bank_code]:first')
                 },
                 bank_nameName = role.bank_name.data('name') || opts.bank_nameName,
-                districtName = role.district.data('name') || opts.districtName,
-                zipcodeName = role.zipcode.data('name') || opts.zipcodeName,
-                zipcodePlaceholder = role.zipcode.data('placeholder') || opts.zipcodePlaceholder,
-                readonly = role.zipcode.data('readonly') || opts.readonly;
+                bank_branch_nameName = role.bank_branch_name.data('name') || opts.bank_branch_nameName,
+                bank_codeName = role.bank_code.data('name') || opts.bank_codeName,
+                bank_codePlaceholder = role.bank_code.data('placeholder') || opts.bank_codePlaceholder,
+                readonly = role.bank_code.data('readonly') || opts.readonly;
 
             // Elements create
             $('<select/>')
@@ -494,24 +493,24 @@
                 .appendTo(role.bank_name.length ? role.bank_name : container);
 
             $('<select/>')
-                .attr('name', districtName)
-                .addClass(role.district.data('style') || ('undefined' !== typeof opts.css[1] ? opts.css[1] : ''))
-                .appendTo(role.district.length ? role.district : container);
+                .attr('name', bank_branch_nameName)
+                .addClass(role.bank_branch_name.data('style') || ('undefined' !== typeof opts.css[1] ? opts.css[1] : ''))
+                .appendTo(role.bank_branch_name.length ? role.bank_branch_name : container);
 
             $('<input/>')
-                .attr({'type': 'text', 'name': zipcodeName, 'placeholder': zipcodePlaceholder})
+                .attr({'type': 'text', 'name': bank_codeName, 'placeholder': bank_codePlaceholder})
                 .prop('readonly', true)
-                .addClass(role.zipcode.data('style') || ('undefined' !== typeof opts.css[2] ? opts.css[2] : ''))
-                .appendTo(role.zipcode.length ? role.zipcode : container);
+                .addClass(role.bank_code.data('style') || ('undefined' !== typeof opts.css[2] ? opts.css[2] : ''))
+                .appendTo(role.bank_code.length ? role.bank_code : container);
 
             self.wrap = {
                 'bank_name': container.find('select[name="' + bank_nameName + '"]:first'),
-                'district': container.find('select[name="' + districtName + '"]:first'),
-                'zipcode': container.find('input[type=text][name="' + zipcodeName + '"]:first')
+                'bank_branch_name': container.find('select[name="' + bank_branch_nameName + '"]:first'),
+                'bank_code': container.find('input[type=text][name="' + bank_codeName + '"]:first')
             };
 
-            if (true === opts.zipcodeIntoDistrict) {
-                self.wrap.zipcode.hide();
+            if (true === opts.bank_codeIntobank_branch_name) {
+                self.wrap.bank_code.hide();
             }
 
             self.role = role;
